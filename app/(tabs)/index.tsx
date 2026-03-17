@@ -1,16 +1,25 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useTheme } from "../context/ThemeContext";
 
 export default function HomeScreen() {
+  const { colors, fonts } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>📦 Catálogo de Productos</Text>
-      <Text style={styles.subtitle}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <Text style={[styles.title, { color: colors.text, fontSize: fonts.title }]}>
+        📦 Catálogo de Productos
+      </Text>
+      <Text style={[styles.subtitle, { color: colors.textSecondary, fontSize: fonts.base }]}>
         Bienvenido, explora y revisa nuestros productos disponibles.
       </Text>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Productos disponibles</Text>
-        <Text style={styles.cardValue}>3</Text>
+      <View style={[styles.card, { backgroundColor: colors.surface }]}>
+        <Text style={[styles.cardTitle, { color: colors.textSecondary, fontSize: fonts.base }]}>
+          Productos disponibles
+        </Text>
+        <Text style={[styles.cardValue, { color: colors.text, fontSize: fonts.value }]}>
+          13
+        </Text>
       </View>
     </View>
   );
